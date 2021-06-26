@@ -1,0 +1,90 @@
+body{
+	margin:0;
+	padding:0;
+	background-color:#E9DFDF;
+	color:#302525;
+	text-align:left;
+}
+*{
+	font:12pt arial;
+}
+header{
+	text-align:left;
+	padding:20px;
+	background-color:#E9DFDF;
+	color:#302525;
+	font:26pt arial;
+	border-bottom:solid 1px #888;
+}
+
+form{
+	padding:20px;
+	padding-top:50px;
+	margin:auto;
+	text-align:left;
+	width:500px;
+}
+input{
+	background:none;
+	padding:10px;
+	font:12pt arial;
+	color:#302525;
+	border:solid 1px #888;
+	outline:none;
+	width:400px;
+	margin-top:6px;
+	margin-bottom:16px;
+	display:block;
+}
+
+
+.lirelasuite{
+   align-items: right;
+   margin-bottom: auto;
+   margin-top: 10px;
+   margin-left: 705px;
+}
+
+
+#message{
+	text-align:right;
+	padding:20px;
+	background-color:#A58989;
+	border-top:dashed 1px #AAA;
+	border-bottom:dashed 1px #AAA;
+}
+
+a{
+	padding:14px;
+	background-color:#E62020;
+	text-decoration:none;
+	color:#FFF;
+	vertical-align:middle;
+	margin-left:60px;
+	border-radius:6px;
+}
+
+
+a:hover{
+	background-color:#F35555;
+}
+
+
+
+h1{
+	font-size:26pt;
+	color:#302525;
+	font-weight:normal;
+}
+
+.bonjour{
+   text-align: right;
+   font: 16pt arial;
+}
+
+.boutonheader{
+   margin-top: 0pt;
+   text-align: center;
+   font: 16pt arial;
+
+}
