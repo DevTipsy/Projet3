@@ -6,15 +6,12 @@ header{
    border-bottom:solid 1px #888;
 }
 
-span{
+a.bonjour{
    font: 16pt arial;
-   margin-left: 70%;
+   margin-left: 77%;
 }
 
-span.bonjour{
-width: 4px;
-height: 4px;
-}
+
 
 .boutonheader{
    padding: 3px;

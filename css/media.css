@@ -1,10 +1,14 @@
 @media (max-width: 575.98px) {
 
-	span.head2{
-		display: block;
-margin-left: 30%;
+a.logoh{
+	margin-left: 44%;
 }
 
+a.bonjour{
+	display: inline-block;
+   font: 16pt arial;
+   margin-left: 36%;
+}
 
 			.enfant{
 			   margin: 0px;
