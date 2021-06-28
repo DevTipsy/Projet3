@@ -1,19 +1,19 @@
 header{
-   margin: 4px 2px 4px 4px ;
+   margin: 2px 2px 2px 2px ;
    background-color:#E9DFDF;
    color:#302525;
-   font:26pt arial;
+   font:12pt arial;
    border-bottom:solid 1px #888;
 }
 
-
-*{
-   font:12pt arial;
+span{
+   font: 16pt arial;
+   margin-left: 70%;
 }
 
-.bonjour{
-   text-align: right;
-   font: 16pt arial;
+span.bonjour{
+width: 4px;
+height: 4px;
 }
 
 .boutonheader{
@@ -21,14 +21,12 @@ header{
    color:#FFF;
    border-radius:1px;
    text-align: right;
-   font: 16pt arial;
+   font: 12pt arial;
    margin-bottom: 1px;
+   margin-left: 85%;
 }
 
-span{
-   font: 16pt arial;
-   color:#E62020;
-}
+
 
 
 .ligne{
@@ -125,25 +123,25 @@ text-align: left;
 .enfant:nth-child(1){
    background-color:#E9DFDF;
    width: 99%;
-   height: 80px;
+   height: 7%;
 }
 .enfant:nth-child(2){
    background-color:#E9DFDF;
    width: 99%;
-   height: 80px;
+   height: 7%;
 
 }
 .enfant:nth-child(3){
    background-color:#E9DFDF;
    width: 99%; 
-   height: 80px;
+   height: 7%;
 
 
 }
 .enfant:nth-child(4){
    background-color:#E9DFDF;
    width: 99%; 
-   height: 80px;
+   height: 7%;
 
 }
 
@@ -153,8 +151,8 @@ margin-top: 0px;
 padding-top: 5px;
 }
 
-.img_acteur
-{  margin-top: 20px;
+.img_acteur{
+   margin-top: 20px;
    margin-left: 30%;
    margin-right: 30%;
 }
@@ -177,7 +175,7 @@ padding-top: 5px;
 
 .react{
    display: inline-flex;
-   margin-left: 1200px;}
+   margin-left: 60%;}
 
 .likedislike{
    display: inline-flex;
@@ -194,12 +192,11 @@ padding-top: 5px;
 
 .ellipsis {
   white-space: nowrap; 
-  width: 500px; 
+  width: 70%; 
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 50px;
   height: 100px;
-
 }
 
 .message{

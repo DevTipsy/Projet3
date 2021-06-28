@@ -1,0 +1,52 @@
+@media (max-width: 575.98px) {
+
+	span.head2{
+		display: block;
+margin-left: 30%;
+}
+
+
+			.enfant{
+			   margin: 0px;
+			   padding: 0px;
+			   border: solid 1px #000;
+			   color: #000;
+			   display: block;
+			}
+
+					.minia{
+						display: inline-block;
+						margin-left: 37%;
+					}
+
+							.ellipsis {
+							  white-space: nowrap; 
+							  width: 70%; 
+							  overflow: hidden;
+							  text-overflow: ellipsis;
+							}
+
+								.lirelasuite{
+								   align-items: right;
+								   margin-top: 0px;
+								   margin-left: 70%;
+								}
+}
+
+@media smartphones(max-width: 767.98px) {
+	p{
+		color: blueviolet;
+	}
+}
+
+@media tablets(max-width: 991.98px) {
+	p{
+		color: green;
+	}
+}
+
+@media desktops(max-width: 1199.98px) {
+   	p{
+		color: darkred;
+	}
+}

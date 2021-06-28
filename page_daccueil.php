@@ -38,7 +38,7 @@
                         <tr><div class="enfant">
                             
                             <div class="minia">
-                                <td><?php echo ('<img style="width:80px;height:40px;" src ="' .$row['logo'] .'"/><br/>'); ?></td>  
+                                <?php echo ('<img style="width:80px;height:40px;" src ="' .$row['logo'] .'"/><br/>'); ?>  
                             </div>
                                     <div class="ellipsis">
                                         <td><h3><?php echo htmlspecialchars($row['acteur']) ?></h3></td>

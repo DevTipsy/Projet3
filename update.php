@@ -41,9 +41,10 @@ if(isset($_POST['update']))
       <link rel="stylesheet" type="text/css" href="css/index.css" />
       <a href="page_daccueil.php"><img alt="logo" src="logo_gbaf.png" width="4%" height="7%"></a>
             Modification du profil
-            <div class="bonjour">
-                Profil de <?=$_SESSION["nomPrenom"]?>
-            </div>
+            <span class="boutonheader">
+                Profil de <?=$_SESSION["nomPrenom"]?><br>
+                <span class="boutonheader"><a href="deconnexion.php">Me déconnecter</a></span>
+            </span>
    </header>
     <body>
 
