@@ -8,19 +8,18 @@ header{
 
 a.bonjour{
    font: 16pt arial;
-   margin-left: 77%;
+   margin-left: 17%;
 }
 
 
 
-.boutonheader{
+a.boutonheader{
    padding: 3px;
-   color:#FFF;
+   color:#302525;
    border-radius:1px;
-   text-align: right;
    font: 12pt arial;
    margin-bottom: 1px;
-   margin-left: 85%;
+   margin-left: 55%;
 }
 
 
