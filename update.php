@@ -4,15 +4,16 @@
         header("location:login.php");
         exit();
     }
-
-if(isset($_POST['update']))
-{
-    try {
+try {
         $pdoConnect = new PDO("mysql:host=localhost;dbname=projet3","root","root");
     } catch (PDOException $exc) {
         echo $exc->getMessage();
         exit();
     }
+
+if(isset($_POST['update.php']))
+{
+    
     
 
     $username = $_POST['username'];
@@ -31,6 +32,11 @@ if(isset($_POST['update']))
         echo 'Echec de la mise à jour';
     }
 }
+$query = "SELECT * FROM account WHERE `id_user` = :id_user";
+$stmt = $pdoConnect->prepare($query);
+$stmt->bindParam(':id_user', $_SESSION["id"], PDO::PARAM_INT);
+$execute = $stmt->execute();
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +62,16 @@ if(isset($_POST['update']))
         <div align="center">
             <form class="formu" action="update.php" method="post">
                 <label>Email actuel :</label>
-                <input class="forml" type="text" name="username" value="">
+                <input class="forml" type="text" value="<?php echo $row['username']; ?>" name="username">
                 <label>Prénom</label>
-                <input class="forml" type="text" name="prenom">
+                <input class="forml" type="text" value="<?php echo $row['prenom']; ?>" name="prenom">
                 <label>Nom</label>
-                <input class="forml" type="text" name="nom">
+                <input class="forml" type="text" value="<?php echo $row['nom']; ?>" name="nom">
+                <label>Question secrète</label>
+                <input class="forml" type="text" value="<?php echo $row['question']; ?>" name="question">
+                <label>Réponse secrète</label>
+                <input class="forml" type="text" value="<?php echo $row['reponse']; ?>" name="reponse">
+
                 <label>Nouveau mot de passe</label>
                 <input class="forml" type="text" name="password"><br>
                 <input class="formn" type="submit" value="Mettre à jour mon profil" />

@@ -4,12 +4,18 @@
 ?>
 <!DOCYTPE html>
 <html>
-	<header>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-        <a href="page_daccueil.php"><img alt="logo" src="logo_gbaf.png" width="4%" height="7%"></a>
-			Réinitialisation du mot de passe
-	</header>
+	    <header>
+            <div id="header">
+                <meta charset="utf-8" />
+                <link rel="stylesheet" type="text/css" href="css/index.css" />
+                <link rel="stylesheet" media="(max-width: 575.98px)" href="css/media.css" />
+                <link rel="stylesheet" media="smartphones(max-width: 767.98px)" href="css/media.css" />
+                <link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
+                <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
+
+                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Réinitialisation du mot de passe</span>
+
+    </header>
 
 	<body onLoad="document.fo.username.focus()">
 		<form class="formu" name="fo" method="post" action="">

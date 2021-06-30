@@ -4,24 +4,24 @@ a.logoh{
 	margin-left: 44%;
 }
 
-a.bonjour{
-	display: inline-block;
-   font: 16pt arial;
-   margin-left: 36%;
-}
+		a.bonjour{
+			display: inline-block;
+		   font: 16pt arial;
+		   margin-left: 36%;
+		}
 
-			.enfant{
-			   margin: 0px;
-			   padding: 0px;
-			   border: solid 1px #000;
-			   color: #000;
-			   display: block;
-			}
+				.enfant{
+				   margin: 3px;
+				   padding: 0px;
+				   border: solid 1px #000;
+				   color: #000;
+				   display: block;
+				}
 
-					.minia{
-						display: inline-block;
-						margin-left: 37%;
-					}
+						.minia{
+							display: inline-block;
+							margin-left: 37%;
+						}
 
 							.ellipsis {
 							  white-space: nowrap; 
@@ -38,9 +38,7 @@ a.bonjour{
 }
 
 @media smartphones(max-width: 767.98px) {
-	p{
-		color: blueviolet;
-	}
+
 }
 
 @media tablets(max-width: 991.98px) {
