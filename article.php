@@ -162,7 +162,7 @@
                                                                         <div class="likedislike">
                                                                                     <form action="<?php echo $currenturl; ?>" method="POST">
                                                                                        <input type="hidden" name="action" value="avis-like" />
-                                                                                       <button name="like" type="submit"><img src="like.png" width="20px" height="20px"></button>
+                                                                                       <button name="like" type="submit"><img src="images/like.png" width="20px" height="20px"></button>
                                                                                     </form>
 
 
@@ -170,7 +170,7 @@
 
                                                                                     <form action="<?php echo $currenturl; ?>" method="POST">
                                                                                           <input type="hidden" name="action" value="avis-dislike" />
-                                                                                          <button name="dislike" type="submit"><img src="dislike.png" width="20px" height="20px"></button>
+                                                                                          <button name="dislike" type="submit"><img src="images/dislike.png" width="20px" height="20px"></button>
                                                                                     </form>
                                                                         </div>
                                      

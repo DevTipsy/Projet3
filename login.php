@@ -4,6 +4,12 @@
 	@$password=$_POST["password"];
 	@$valider=$_POST["valider"];
 	$message="";
+
+	if(isset($valider)){
+		if(empty($username)) $message.="<li>Username invalide!</li>";
+		if(empty($password)) $message.="<li>Mot de passe invalide!</li>";
+		if(empty($message)){
+
 	if(isset($valider)){
 		include("connexion.php");
 		$res=$pdo->prepare("select * from account where username=? and password=? limit 1");
@@ -19,6 +25,8 @@
 			header("location:page_daccueil.php");
 		}
 	}
+}
+}
 ?>
 <!DOCYTPE html>
 	    <header>
@@ -30,8 +38,7 @@
                 <link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
                 <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
 
-                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Connexion</span>
-							<a class="red" href="inscription.php">S'inscrire</a>
+                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Connexion</span>
     </header>
 
 	<body>
@@ -41,7 +48,11 @@
 					<label>Mot de passe</label>
 					<input class="forml" type="password" name="password" />
 					<input class="formn" type="submit" name="valider" value="Je me connecte" /><br>
+					<a class="red" href="inscription.php">S'inscrire</a>
 					<a class="red" href="motdepasseoublie.php">Mot de passe oublié</a>
 				</form>
+							<?php if(!empty($message)){ ?>
+				<div class="message"><?php echo $message ?></div>
+			<?php } ?>
 	</body>
 </html>

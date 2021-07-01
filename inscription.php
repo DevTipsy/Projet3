@@ -7,11 +7,15 @@
 	@$reponse=$_POST["reponse"];
 	@$valider=$_POST["valider"];
 	$message="";
+	
 	if(isset($valider)){
 		if(empty($nom)) $message="<li>Nom invalide!</li>";
 		if(empty($prenom)) $message.="<li>Prénom invalide!</li>";
-		if(empty($username)) $message.="<li>Login invalide!</li>";
+		if(empty($username)) $message.="<li>Username invalide!</li>";
 		if(empty($password)) $message.="<li>Mot de passe invalide!</li>";
+		if(empty($question)) $message.="<li>Question secrète invalide!</li>";
+		if(empty($reponse)) $message.="<li>Réponse secrète invalide!</li>";
+
 		if(empty($message)){
 			include("connexion.php");
 			$req=$pdo->prepare("select id_user from account where username=? limit 1");
@@ -40,8 +44,7 @@
                 <link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
                 <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
 
-                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Inscription</span>
-							<a class="red" href="login.php">Déja inscrit</a>
+                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Inscription</span>
     </header>
 
 	<body>
@@ -60,6 +63,8 @@
 			<input class="forml" type="text" name="reponse" value="" />
 			<div class="label"></div>
 			<input class="formn" type="submit" name="valider" value="Je m'inscris" /><br>
+			<a class="red" href="login.php">Déja inscrit</a>
+
 		</form>
 			<?php if(!empty($message)){ ?>
 				<div class="message"><?php echo $message ?></div>

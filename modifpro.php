@@ -37,7 +37,7 @@ if(isset($_SESSION['id'])) {
       <title></title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="css/index.css" />
-      <a href="page_daccueil.php"><img alt="logo" src="logo_gbaf.png" width="4%" height="7%"></a>
+      <a href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="4%" height="7%"></a>
       		Mon compte
    </header>
 
