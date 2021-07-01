@@ -1,5 +1,10 @@
       <!--Connexion à la BDD-->
       <?php
+          session_start();
+    if(@$_SESSION["autoriser"]!="oui"){
+        header("location:login.php");
+        exit();
+    }
       try
       {
       $bdd = new PDO('mysql:host=localhost;dbname=projet3','root','root');
@@ -79,7 +84,7 @@
 <!DOCTYPE html>
 <html>
 
-   <?php include("header.php"); ?>              
+   <?php include("header1.php"); ?>              
 
 <body>
    <div class="allbody">
@@ -157,14 +162,15 @@
                                                                         <div class="likedislike">
                                                                                     <form action="<?php echo $currenturl; ?>" method="POST">
                                                                                        <input type="hidden" name="action" value="avis-like" />
-                                                                                       <button name="like" type="submit"><i class="fa fa-thumbs-up"></i></button>
+                                                                                       <button name="like" type="submit"><img src="like.png" width="20px" height="20px"></button>
                                                                                     </form>
+
 
                                                                                           <?php echo $nbr = ($data_vote['point_vote'] == 0) ? 0 : $data_vote['point_vote'] ?>
 
                                                                                     <form action="<?php echo $currenturl; ?>" method="POST">
                                                                                           <input type="hidden" name="action" value="avis-dislike" />
-                                                                                          <button name="dislike" type="submit"><i class="fa fa-thumbs-down"></i></button>
+                                                                                          <button name="dislike" type="submit"><img src="dislike.png" width="20px" height="20px"></button>
                                                                                     </form>
                                                                         </div>
                                      
