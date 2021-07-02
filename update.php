@@ -10,9 +10,8 @@ try {
         echo $exc->getMessage();
         exit();
     }
-echo "1";
 
-if(isset($_POST['update.php']))
+if(isset($_POST['update']))
 {
 
     $nom = $_POST['nom'];
@@ -23,8 +22,9 @@ if(isset($_POST['update.php']))
     $reponse = $_POST['reponse'];
 
 
-    $query = "UPDATE account SET nom = :nom, prenom = :prenom, username = :username, password = :password, question = :question,, reponse = :reponse WHERE id_user = :id_user";    
-    $pdoResult = $pdoConnect->prepare($query);    
+    $query = "UPDATE 'account' SET 'nom'=:nom, 'prenom'=:prenom, 'username'=:username, 'password'=:password, 'question'=:question, 'reponse'=:reponse WHERE 'id_user'=:id_user";    
+    $pdoResult = $pdoConnect->prepare($query);
+    $pdoResult->bindParam(':id_user', $_SESSION["id"], PDO::PARAM_INT);   
     $pdoExec = $pdoResult->execute(array(":nom"=>$nom,":prenom"=>$prenom,":username"=>$username,":password"=>$password,":question"=>$question,":reponse"=>$reponse));
 
     if($pdoExec)
@@ -34,7 +34,7 @@ if(isset($_POST['update.php']))
         echo 'Echec de la mise à jour';
     }
 }
-$query = "SELECT * FROM account WHERE `id_user` = :id_user";
+$query = "SELECT * FROM account WHERE id_user = :id_user";
 $stmt = $pdoConnect->prepare($query);
 $stmt->bindParam(':id_user', $_SESSION["id"], PDO::PARAM_INT);
 $execute = $stmt->execute();
@@ -62,7 +62,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <body>
 
         <div align="center">
-            <form class="formu" action="update.php" method="post">
+            <form class="formu" action="update" method="post">
                 <label>Nom</label>
                 <input class="forml" type="text" value="<?php echo $row['nom']; ?>" name="nom">
                 <label>Prénom</label>
@@ -75,7 +75,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <input class="forml" type="text" value="<?php echo $row['question']; ?>" name="question">
                 <label>Réponse secrète</label>
                 <input class="forml" type="text" value="<?php echo $row['reponse']; ?>" name="reponse"><br>                
-                <input class="formn" type="submit" value="Mettre à jour mon profil" />
+                <input class="formn" type="submit" name="update" value="Mettre à jour mon profil" />
             </form>
         </div>
     </body>
