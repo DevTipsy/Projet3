@@ -6,7 +6,12 @@
 	@$valider=$_POST["valider"];
 	$message="";
 
-
+	if(isset($valider)){
+		if(empty($username)) $message.="<li>Username invalide!</li>";
+		if(empty($question)) $message.="<li>Question secrète invalide!</li>";
+		if(empty($reponse)) $message.="<li>Réponse secrète invalide!</li>";
+		if(empty($message)){
+			
 	if(isset($valider)){
 		include("connexion.php");
 		$res=$pdo->prepare("SELECT * FROM account WHERE username=? question=? and reponse=? LIMIT 1");
@@ -14,26 +19,16 @@
 		$res->execute(array($username,$question,$reponse));
 		$tab=$res->fetchAll();
 		if(count($tab)==0)
-			$message="<li>Mauvais username!</li>";
-			$message="<li>Mauvaise question secrète!</li>";
-			$message="<li>Mauvaise réponse secrète!</li>";
+			$message="<li>Mauvais username, question ou réponse secrète!</li>";
 		else{
 			$_SESSION["autoriser"]="oui";
 			$_SESSION["nomPrenom"]=strtoupper($tab[0]["prenom"]." ".$tab[0]["nom"]);
 			$_SESSION["id"] = $tab[0]["id_user"];
 			header("location:login.php");
-
-
-				if(isset($valider)){
-		if(empty($username)) $message.="<li>Username invalide!</li>";
-		if(empty($question)) $message.="<li>Question secrète invalide!</li>";
-		if(empty($reponse)) $message.="<li>Réponse secrète invalide!</li>";
-		if(empty($message)){
-			
 		}
 	}
 }
-	}
+}
 ?>
 <!DOCYTPE html>
 <html>
