@@ -22,10 +22,17 @@ if(isset($_POST['update']))
     $reponse = $_POST['reponse'];
 
 
-    $query = "UPDATE 'account' SET 'nom'=:nom, 'prenom'=:prenom, 'username'=:username, 'password'=:password, 'question'=:question, 'reponse'=:reponse WHERE 'id_user'=:id_user";    
+    $query = "UPDATE account SET 'nom'=:nom, 'prenom'=:prenom, 'username'=:username, 'password'=:password, 'question'=:question, 'reponse'=:reponse WHERE 'id_user'=:id_user";    
     $pdoResult = $pdoConnect->prepare($query);
-    $pdoResult->bindParam(':id_user', $_SESSION["id"], PDO::PARAM_INT);   
-    $pdoExec = $pdoResult->execute(array(":nom"=>$nom,":prenom"=>$prenom,":username"=>$username,":password"=>$password,":question"=>$question,":reponse"=>$reponse));
+$pdoResult->bindParam(':id_user', $_SESSION["id"], PDO::PARAM_INT);
+$pdoResult->bindParam(':nom', $nom, PDO::PARAM_STR);
+$pdoResult->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+$pdoResult->bindParam(':username', $username, PDO::PARAM_STR);
+$pdoResult->bindParam(':password', $password, PDO::PARAM_STR);
+$pdoResult->bindParam(':question', $question, PDO::PARAM_STR);
+$pdoResult->bindParam(':reponse', $reponse, PDO::PARAM_STR);
+$pdoExec = $pdoResult->execute();
+var_dump($pdoExec);
 
     if($pdoExec)
     {
@@ -62,7 +69,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <body>
 
         <div align="center">
-            <form class="formu" action="update" method="post">
+            <form class="formu" action="update.php" method="post">
                 <label>Nom</label>
                 <input class="forml" type="text" value="<?php echo $row['nom']; ?>" name="nom">
                 <label>Prénom</label>

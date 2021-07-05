@@ -1,33 +1,45 @@
 <?php
-	session_start();
-	@$username=$_POST["username"];
-	@$question=$_POST["question"];
-	@$reponse=$_POST["reponse"];
-	@$valider=$_POST["valider"];
-	$message="";
+	include("connexion.php");
 
-	if(isset($valider)){
-		if(empty($username)) $message.="<li>Username invalide!</li>";
-		if(empty($question)) $message.="<li>Question secrète invalide!</li>";
-		if(empty($reponse)) $message.="<li>Réponse secrète invalide!</li>";
-		if(empty($message)){
-			
-	if(isset($valider)){
-		include("connexion.php");
-		$res=$pdo->prepare("SELECT * FROM account WHERE username=? question=? and reponse=? LIMIT 1");
-		$res->setFetchMode(PDO::FETCH_ASSOC);
-		$res->execute(array($username,$question,$reponse));
-		$tab=$res->fetchAll();
-		if(count($tab)==0)
-			$message="<li>Mauvais username, question ou réponse secrète!</li>";
-		else{
-			$_SESSION["autoriser"]="oui";
-			$_SESSION["nomPrenom"]=strtoupper($tab[0]["prenom"]." ".$tab[0]["nom"]);
-			$_SESSION["id"] = $tab[0]["id_user"];
-			header("location:login.php");
-		}
+	try{
+		$pdoConnect=new PDO("mysql:host=localhost;dbname=projet3","root","root");
 	}
-}
+	catch(PDOException $e){
+		echo $e->getMessage();
+	}
+
+	session_start();
+	if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+	$username=$_POST["username"];
+	$reponse=$_POST["reponse"];
+
+	try {
+            $sql = "SELECT id_user, username, reponse FROM account WHERE username = :username AND reponse = :reponse";
+            $stmt = $pdoConnect->prepare($sql);
+            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':reponse', $reponse, PDO::PARAM_STR);
+            $execute = $stmt->execute();
+            $count = $stmt->rowCount();
+if($count == 1) {
+                $query = "UPDATE account SET password = :password WHERE username = :username";
+                $stmt = $pdoConnect->prepare($query);
+                $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+                $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+                $execute = $stmt->execute();
+                session_destroy();
+                session_start();
+                $_SESSION["success"] = "Mot de passe mis à jour avec succès";
+
+  		header("location: login.php");
+                exit();
+            } else {
+                $login_err = "Nom d'utilisateur ou réponse à la question secrète invalide";
+            }
+        } catch (PDOException $e) {
+            echo "Error : ".$e->getMessage();
+        }
+
 }
 ?>
 <!DOCYTPE html>
@@ -46,13 +58,14 @@
     </header>
 
 	<body onLoad="document.fo.username.focus()">
-		<form class="formu" name="fo" method="post" action="">
+		<form class="formu" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<div class="label">Username (email)</div>
 			<input  class="forml" type="text" name="username" value="" />
-			<div class="label">Question secrète</div>
-			<input  class="forml" type="text" name="text" />
 			<div class="label">Réponse secrète</div>
-			<input  class="forml" type="text" name="text" />
+			<input  class="forml" type="text" name="reponse" />
+			<div class="label"> Mot de passe</div>
+			<input  class="forml" type="text" name="motdepasse" value="" />
+
 			<input class="formn" type="submit" name="valider" value="Envoyer le nouveau mot de passe" /><br>
 		</form>
 			<?php if(!empty($message)){ ?>
