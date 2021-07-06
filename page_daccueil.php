@@ -1,21 +1,19 @@
 <?php
-            $servername = 'localhost';
-            $username = 'root';
-            $password = 'root';
+$servername = 'localhost';
+$username = 'root';
+$password = 'root';
             
-            try{
-                $pdo = new PDO("mysql:host=localhost;dbname=projet3", $username, $password);
-                //On définit le mode d'erreur de PDO sur Exception
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            $sql = 'SELECT  * FROM acteurs ORDER BY id_acteur';
-                $q = $pdo->query($sql);
-                $q->setFetchMode(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
+    try{
+        $pdo = new PDO("mysql:host=localhost;dbname=projet3", $username, $password);
+        //On définit le mode d'erreur de PDO sur Exception
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+        $sql = 'SELECT  * FROM acteurs ORDER BY id_acteur';
+        $q = $pdo->query($sql);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
               echo "Erreur : " . $e->getMessage();
-            }
+        }
 ?>
-
 <!DOCTYPE html>
 <html>
             
@@ -34,12 +32,10 @@
                 </div>
   
                 <div class="container">
-                    <?php while ($row = $q->fetch()): ?>
-                        <tr><div class="enfant">
-                            
+                <?php while ($row = $q->fetch()): ?>
+                        <tr><div class="enfant">    
                             <div class="minia">
-                                <?php echo ('<img style="width:80px;height:40px;" src ="' .$row['logo'] .'"/><br/>'); ?>  
-                            </div>
+                                <?php echo ('<img style="width:80px;height:40px;" src ="' .$row['logo'] .'"/><br/>'); ?></div>
                                     <div class="ellipsis">
                                         <td><h3><?php echo htmlspecialchars($row['acteur']) ?></h3></td>
                                         <td><?php echo htmlspecialchars($row['description']); ?></td>

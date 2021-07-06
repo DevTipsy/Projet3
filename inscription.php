@@ -45,7 +45,7 @@
                 <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
 
                             <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Inscription</span>
-    </header>
+    	</header>
 
 	<body>
 		<form class="formu" name="fo" method="post" action="" enctype="multipart/form-data">
