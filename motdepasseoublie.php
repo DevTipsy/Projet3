@@ -38,21 +38,19 @@ if(isset($valider)){
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+	<head>
+	         <title>Header</title>
+	         <div id="header">
+	         	<meta charset="utf-8"> 
+            	<meta name="viewport" content="width=device-width, initial-scale=1">
+	            <link rel="stylesheet" type="text/css" href="css/index.css" />
+	            <link rel="stylesheet" media="(max-width: 767px)" href="css/media.css" />
+	        </div>
 	<header>
-        <div id="header">
-			<meta charset="utf-8" />
-			<link rel="stylesheet" type="text/css" href="css/index.css" />
-			<link rel="stylesheet" media="(max-width: 575.98px)" href="css/media.css" />
-			<link rel="stylesheet" media="smartphones(max-width: 767.98px)" href="css/media.css" />
-			<link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
-			<link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
-			<a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Réinitialisation du mot de passe</span>
-		</div>
-    </header>
-
-	<body onLoad="document.fo.username.focus()">
-		<form class="formu" method="post" action="">
+				<a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100" height="100"></a><span style="font-weight: bold ; font-size: 26px;">  Réinitialisation du mot de passe</span>
+	</header>
+		<form class="formu" method="post">
 			<div class="label">Nom d'utilisateur</div>
 			<input  class="forml" type="text" name="username" value="" />
 			<div class="label">Réponse à la question secrète</div>

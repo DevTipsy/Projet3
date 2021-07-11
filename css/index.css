@@ -100,7 +100,6 @@ text-align: left;
 .container{
    padding: 1px;
    border: solid 1px #000;
-   display: auto;
    align-items: stretch;
    flex-direction: column;
    width: 60%;
@@ -179,7 +178,6 @@ padding-top: 5px;
 
 
 .lirelasuite{
-   align-items: right;
    margin-bottom: 4px;
    margin-top: 50px;
    margin-left: auto;

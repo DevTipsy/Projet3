@@ -37,24 +37,19 @@ if(isset($_POST['update']))
 ?>
 
 <!DOCTYPE html>
-<html>
-    <header>
-        <div id="header">
-            <meta charset="utf-8" />
+<html lang="fr">
+         <title>Update</title>
+         <div id="header">
             <link rel="stylesheet" type="text/css" href="css/index.css" />
-            <link rel="stylesheet" media="(max-width: 575.98px)" href="css/media.css" />
-            <link rel="stylesheet" media="smartphones(max-width: 767.98px)" href="css/media.css" />
-            <link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
-            <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
-            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a>
-            <a class="bonjour" href="update.php"><img alt="profil" src="images/profil.png" width="30px" height="30px"></a> <?=$_SESSION["nomPrenom"]?><br>
-            <a style="color: black;" href="deconnexion.php">Me déconnecter</a>
+            <link rel="stylesheet" media="(max-width: 767px)" href="css/media.css" />
         </div>
-    </header>
-
-    <body>
-        <div align="center">
-            <form class="formu" action="" method="post">
+<header>
+                        <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100" height="100"></a>
+                        <a class="bonjour" href="update.php"><img alt="profil" src="images/profil.png" width="30" height="30"></a> <?=$_SESSION["nomPrenom"]?><br>
+                        <a style="color: black;" href="deconnexion.php">Me déconnecter</a>
+</header>
+<main>
+            <form class="formu" method="post">
                 <label>Nom</label>
                 <input class="forml" type="text" value="<?php echo $row['nom']; ?>" name="nom">
                 <label>Prénom</label>
@@ -72,6 +67,6 @@ if(isset($_POST['update']))
             <?php if(!empty($message)){ ?>
 			    <div class="message"><?php echo $message ?></div>
 		    <?php } ?>
-        </div>
+</main>
     </body>
 </html>

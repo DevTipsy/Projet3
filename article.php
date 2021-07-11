@@ -79,22 +79,20 @@ session_start();
                                              $post->execute(array($getid));
             ?>
 
-
-<!DOCTYPE html>
-<html>
    <?php include("header1.php"); ?>              
-<body>
-   <div class="allbody">
+<main>
+   <section class="allbody">
       <!--Présentation du partenaire-->
       <div class="img_acteur">
-          <?php echo ('<img height="130" width="100%" " src ="' .$logo['logo'] .'"/><br>'); ?>
+          <?php echo ('<img height="130" width="100%" alt="logo" src ="' .$logo['logo'] .'"/><br>'); ?>
       </div>
       <h2><?= $acteur['acteur'] ?></h2>
       <p><?= $description['description'] ?></p><br>
 
-      <div class="containerlikecom">                  
+
+      <div class="containerlikecom">                 
          <!--Nombre de commentaires-->
-         <div class="comptecom" style="font-weight: bold";>
+         <div class="comptecom" style="font-weight: bold">
             <?php $query = "SELECT * FROM post WHERE id_acteur = :id_acteur";
             $stmt = $bdd->prepare($query);
             $stmt->bindParam(':id_acteur', $_GET['id_acteur'], PDO::PARAM_INT);
@@ -120,7 +118,7 @@ session_start();
 
 
                         <form method="POST">
-                           <textarea type="submit" id="text" name="commentaire" placeholder="Votre commentaire ici" rows="2" cols="15"></textarea><br>
+                           <textarea id="text" name="commentaire" placeholder="Votre commentaire ici" rows="2" cols="15"></textarea><br>
                            <input type="submit" value="Publier le commentaire" name="submit_commentaire" />
                         </form>
                                              
@@ -156,14 +154,14 @@ session_start();
                            <div class="likedislike">
                               <form action="<?php echo $currenturl; ?>" method="POST">
                                  <input type="hidden" name="action" value="avis-like" />
-                                 <button name="like" type="submit"><img src="images/like.png" width="20px" height="20px"></button>
+                                 <button name="like" type="submit"><img src="images/like.png" width="20" height="20" alt="like"></button>
                               </form>
 
                               <?php echo $nbr = ($data_vote['point_vote'] == 0) ? 0 : $data_vote['point_vote'] ?>
 
                               <form action="<?php echo $currenturl; ?>" method="POST">
                                  <input type="hidden" name="action" value="avis-dislike" />
-                                 <button name="dislike" type="submit"><img src="images/dislike.png" width="20px" height="20px"></button>
+                                 <button name="dislike" type="submit"><img src="images/dislike.png" width="20" height="20" alt="dislike"></button>
                               </form>
                            </div>
                                      
@@ -191,20 +189,20 @@ session_start();
                   $infouser->execute(array($c['id_user']));
                   $infos = $infouser->fetch();
                ?>
-               <div class="enfantn">
-                  <div class="flux"><div style="font-weight: bold"><?php echo $infos['prenom'] .' '.$infos['nom'] ?></div>
-                                    <?= $c['date_add'] ?>:<br>
-                                    <?= $c['post'] ?><br>
-                  </div><br>
-                  <?php } ?>
-                  <?php ?>
-               </div>
+                  <div class="enfantn">
+                     <div class="flux"><div style="font-weight: bold"><?php echo $infos['prenom'] .' '.$infos['nom'] ?></div>
+                                       <?= $c['date_add'] ?>:<br>
+                                       <?= $c['post'] ?><br>
+                     </div><br>
+                  </div>
+                     <?php } ?>
+                     <?php ?>
       </div>
 
 
-   </div>
-</body><br><br>
-                <?php include("footer.php"); ?>
+   </section>
+</main>
+                   <?php include("footer.php"); ?>
 </html>
 
 

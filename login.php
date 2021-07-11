@@ -28,21 +28,21 @@
 	}
 }
 ?>
-<!DOCYTPE html>
-	    <header>
-            <div id="header">
-                <meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+			<title>Page de connexion</title>
+			    <meta charset="utf-8"> 
+            	<meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" type="text/css" href="css/index.css" />
-                <link rel="stylesheet" media="(max-width: 575.98px)" href="css/media.css" />
-                <link rel="stylesheet" media="smartphones(max-width: 767.98px)" href="css/media.css" />
-                <link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
-                <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
+                <link rel="stylesheet" media="(max-width: 767px)" href="css/media.css" />
+    </head>
 
-                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Connexion</span>
+    	<header>
+                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100" height="100"></a><span style="font-weight: bold ; font-size: 26px;">  Connexion</span>    		
     	</header>
 
-	<body>
-				<form class="formu" name="fo" method="post" action="">
+				<form class="formu" name="fo" method="post">
 		            <label>Username (email)</label>
 					<input class="forml" type="text" name="username" autofocus value="<?php echo $username?>" />
 					<label>Mot de passe</label>

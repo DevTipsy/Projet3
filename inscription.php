@@ -32,23 +32,19 @@
 		}
 	}
 ?>
-<!DOCYTPE html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
+         <title>Header</title>
+         <div id="header">
+            <link rel="stylesheet" type="text/css" href="css/index.css" />
+            <link rel="stylesheet" media="(max-width: 767px)" href="css/media.css" />
+        </div>
+        <header>
+                        <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100" height="100"></a>
+						<span style="font-weight: bold ; font-size: 26px;">  Inscription</span>
+		</header>
 
-	    <header>
-            <div id="header">
-                <meta charset="utf-8" />
-                <link rel="stylesheet" type="text/css" href="css/index.css" />
-                <link rel="stylesheet" media="(max-width: 575.98px)" href="css/media.css" />
-                <link rel="stylesheet" media="smartphones(max-width: 767.98px)" href="css/media.css" />
-                <link rel="stylesheet" media="tablets(max-width: 991.98px)" href="css/media.css" />
-                <link rel="stylesheet" media="desktops(max-width: 1199.98px)" href="css/media.css" />
-
-                            <a class="logoh" href="page_daccueil.php"><img alt="logo" src="images/logo_gbaf.png" width="100px" height="100px"></a><span style="font-weight: bold ; font-size: 26px;">  Inscription</span>
-    	</header>
-
-	<body>
-		<form class="formu" name="fo" method="post" action="" enctype="multipart/form-data">
+		<form class="formu" name="fo" method="post" enctype="multipart/form-data">
 			<div class="label">Nom</div>
 			<input class="forml" type="text" name="nom" autofocus value="<?php echo $nom?>" />
 			<div class="label">Prénom</div>
